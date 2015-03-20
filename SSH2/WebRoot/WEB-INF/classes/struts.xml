@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 开发模式 -->
+    <constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <constant name="struts.devMode" value="true" />
+
+	<!--解决乱码    -->
+    <constant name="struts.i18n.encoding" value="UTF-8"></constant> 
+     
+    <package name="default" namespace="/" extends="struts-default">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        
+        <default-action-ref name="index" />
+
+        <global-results>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </global-results>
+
+        <action name="index" class="indexAction">
+            <result name="success">/index.jsp</result>
+        </action>
+        
+        <action name="user-*" class="userAction" method="{1}">
+        	<result name="add-success">/index.jsp</result>
+            <result name="login-success">/index.jsp</result>
+            <result name="login-error">/login.jsp</result>
+            <!-- 向浏览器发送InputSream对象，通常用来处理文件下载或者返回数据给 Ajax 调用 -->
+           <result type="stream"></result>
+            <result type="json">
+            	<param name="root">result</param>
+            </result>
+        </action>
+    </package>
+
+</struts>

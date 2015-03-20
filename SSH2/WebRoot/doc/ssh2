@@ -1,0 +1,47 @@
+struts2搭建
+基础jar包引用
+commons-fileupload
+commons-io
+commons-lang3
+commons-longging 日志
+freemarker
+javassist
+ognl
+struts2-core
+xwork-core
+
+
+web.xml配置项
+filter
+<!-- struts2 -->
+<filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
+
+Action实体类中的方法不能带参数
+
+
+
+
+
+配置json使用
+json-lib
+commons-beanutils
+commons-collections
+commons-lang
+ezmorph
+
+
+	
+
+
+
+
+
